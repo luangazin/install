@@ -1,28 +1,28 @@
-name: Publish vkdr-install.sh to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
-#permission to write 
+
 permissions:
   contents: write
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout the repository
       uses: actions/checkout@v4
 
-    - name: Copy vkdr-install.sh to gh-pages
+    - name: Copy the install script
       run: |
-        mkdir -p out
-        cp vkdr-install.sh out/vkdr-install
+        mkdir -p public
+        cp vkdr-install.sh public/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+        publish_dir: ./public
