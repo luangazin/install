@@ -19,7 +19,7 @@ jobs:
     - name: Copy vkdr-install.sh to gh-pages
       run: |
         mkdir -p out
-        cp vkdr-install.sh out/
+        cp vkdr-install.sh out/vkdr-install
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
