@@ -16,14 +16,6 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v4
 
-    - name: Copy the install script
+    - name: test
       run: |
-        mkdir -p public
-        cp vkdr-install.sh public/
-        cp index.html public/
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        echo "NODE_OPTIONS: $NODE_OPTIONS"
